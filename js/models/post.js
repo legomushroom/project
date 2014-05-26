@@ -21,6 +21,11 @@
       title: 'Learn EmberData.js',
       text: 'this is text of the post',
       isShared: true
+    }, {
+      id: 4,
+      title: 'Learn EmberData.js !!',
+      text: 'this post',
+      isShared: true
     }
   ];
 

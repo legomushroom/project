@@ -10,12 +10,24 @@
         post = this.store.createRecord('post', {
           title: 'learn',
           text: text,
-          isShared: true
+          isShared: false
         });
         this.set('newTitle', '');
         return post.save();
+      },
+      clearShared: function() {
+        var shared;
+        shared = this.filterBy('isShared', true);
+        shared.invoke('deleteRecord');
+        return shared.invoke('save');
       }
     },
+    hasShared: (function() {
+      return this.get('shared') > 0;
+    }).property('shared'),
+    shared: (function() {
+      return this.filterBy('isShared', true).get('length');
+    }).property('@each.isShared'),
     remaining: (function() {
       return this.filterBy('isShared', true).get('length');
     }).property('@each.isShared'),

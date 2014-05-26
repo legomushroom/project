@@ -1,18 +1,6 @@
 script(type="text/x-handlebars", data-template-name="posts/index").
-    <li>
-      <a href="all">All</a>
-    </li>
-    <li>
-      {{#link-to "posts.active" activeClass="selected"}}Active{{/link-to}}
-    </li>
-    <li>
-      {{#link-to "posts.shared" activeClass="selected"}}shared{{/link-to}}
-    </li>
 
     <div class="posts">
-      <p> posts template </p>
-      {{input type="text" id="new-post" placeholder="What needs to be done?" 
-                value=newTitle action="createPost"}}
       <ul class="post-list">
         {{#each itemController="post"}}
         <li {{bind-attr class='isShared:shared isEditing:editing'}}>
@@ -25,10 +13,5 @@ script(type="text/x-handlebars", data-template-name="posts/index").
           {{/if}}
         </li>
         {{/each}}
-        <span id="post-count">
-          <p>--------->>>>>></p>
-          <strong>{{remaining}}</strong> {{inflection}} shared
-        </span>
       </ul>
-
     </div>

@@ -6,11 +6,36 @@ html
     link(rel="stylesheet", type="text/css", href="css/main.css")
     //- link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800', rel='stylesheet', type='text/css')
   body
-    
-    //- {{outlet}}
-    
-    include templates/posts-index
 
+    script(type="text/x-handlebars", data-template-name="posts").
+        <p> posts template </p>
+        {{input type="text" id="new-post" placeholder="What needs to be done?" 
+                value=newTitle action="createPost"}}
+
+        <li>
+          {{#link-to "posts.index" activeClass="selected"}}all{{/link-to}}
+        </li>
+        <li>
+          {{#link-to "posts.active" activeClass="selected"}}active{{/link-to}}
+        </li>
+        <li>
+          {{#link-to "posts.shared" activeClass="selected"}}shared{{/link-to}}
+        </li>
+        {{outlet}}
+
+        <p>---------</p>
+        <span>
+        <strong>{{remaining}}</strong> {{inflection}} shared
+        </span>
+        {{#if hasShared}}
+        <button id="clear-shared" {{action "clearShared"}}>
+          Clear shared ({{shared}})
+        </button>
+        {{/if}}
+
+    include templates/posts-index
+    <span id="post-count">
+    
     //- VENDOR
     script(src="bower_components/jquery/dist/jquery.js")
     script(src="bower_components/handlebars/handlebars.js")

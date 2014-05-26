@@ -6,9 +6,22 @@ Project.PostsController = Ember.ArrayController.extend
       post = @store.createRecord 'post',
         title: 'learn'
         text: text
-        isShared: true
+        isShared: false
       @set 'newTitle', ''
       post.save()
+
+    clearShared:->
+      shared = @filterBy 'isShared', true
+      shared.invoke 'deleteRecord'
+      shared.invoke 'save'
+  
+  hasShared: (-> 
+    @get('shared') > 0
+  ).property('shared')
+
+  shared: (->
+    @filterBy('isShared', true).get 'length'
+  ).property('@each.isShared')
 
   remaining:(->
     @filterBy('isShared', true).get('length')

@@ -6,21 +6,35 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
-    <script type="text/x-handlebars" data-template-name="posts/index">
+    <script type="text/x-handlebars" data-template-name="posts">
+      <p> posts template </p>
+      {{input type="text" id="new-post" placeholder="What needs to be done?" 
+              value=newTitle action="createPost"}}
+              
       <li>
-        <a href="all">All</a>
+        {{#link-to "posts.index" activeClass="selected"}}all{{/link-to}}
       </li>
       <li>
-        {{#link-to "posts.active" activeClass="selected"}}Active{{/link-to}}
+        {{#link-to "posts.active" activeClass="selected"}}active{{/link-to}}
       </li>
       <li>
         {{#link-to "posts.shared" activeClass="selected"}}shared{{/link-to}}
       </li>
+      {{outlet}}
       
+      <p>---------</p>
+      <span>
+      <strong>{{remaining}}</strong> {{inflection}} shared
+      </span>
+      {{#if hasShared}}
+      <button id="clear-shared" {{action "clearShared"}}>
+        Clear shared ({{shared}})
+      </button>
+      {{/if}}
+      
+    </script>
+    <script type="text/x-handlebars" data-template-name="posts/index">
       <div class="posts">
-        <p> posts template </p>
-        {{input type="text" id="new-post" placeholder="What needs to be done?" 
-                  value=newTitle action="createPost"}}
         <ul class="post-list">
           {{#each itemController="post"}}
           <li {{bind-attr class='isShared:shared isEditing:editing'}}>
@@ -33,14 +47,9 @@
             {{/if}}
           </li>
           {{/each}}
-          <span id="post-count">
-            <p>--------->>>>>></p>
-            <strong>{{remaining}}</strong> {{inflection}} shared
-          </span>
         </ul>
-        
       </div>
-    </script>
+    </script><span id="post-count">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/handlebars/handlebars.js"></script>
     <script src="bower_components/ember/ember.js"></script>
