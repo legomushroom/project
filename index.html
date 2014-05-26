@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <script type="text/x-handlebars" data-template-name="posts">
+      <div class="posts">
+        <p> posts template </p>
+        {{input type="text" id="new-post" placeholder="What needs to be done?" 
+                  value=newTitle action="createPost"}}
+        <ul class="post-list">
+          {{#each itemController="post"}}
+          <li {{bind-attr class='isShared:shared isEditing:editing'}}>
+            {{#if isEditing}}
+              {{edit-post class="edit" value=title focus-out="acceptChanges"
+                               insert-newline="acceptChanges"}}
+            {{else}}
+              {{input type="checkbox" checked=isShared class="toggle"}}
+              <label {{action "editPost" on="doubleClick"}}>{{title}}</label><button {{action "removePost"}} class="destroy">x</button>
+            {{/if}}
+          </li>
+          {{/each}}
+          <span id="post-count">
+            <p>--------->>>>>></p>
+            <strong>{{remaining}}</strong> {{inflection}} shared
+          </span>
+        </ul>
+        
+      </div>
+    </script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/ember/ember.js"></script>
+    <script src="bower_components/ember-data/ember-data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/posts.js"></script>
+    <script src="js/controllers/post.js"></script>
+    <script src="js/models/post.js"></script>
+    <script src="js/views/edit-post.js"></script>
+    <script src="js/router.js"></script>
+  </body>
+</html>

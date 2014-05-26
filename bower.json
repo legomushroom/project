@@ -1,0 +1,15 @@
+{
+  "name": "sample-app",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "2.1.0",
+    "ember": "1.5.1",
+    "handlebars": "1.1.2",
+    "ember-data": "~1.0.0-beta.7"
+  }
+}
