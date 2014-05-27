@@ -20,15 +20,20 @@ $$()
 $$$()
   root-selector()
 
+-$(i=1)
+  rewind-selector(i)
+
 
 //! --------------------
 .block
   &:hover
-    {$$$()}__element
-      hl green
-    // test: selector()
-    // {$$$()}__element
-    // hl red
+    // test: $-$()
+    // {$-$()}__element
+    //   hl green
+    .aaa
+      // test: selector()
+      {-$(1)}__element2
+        hl red
 
 // .block
 //   &:hover
