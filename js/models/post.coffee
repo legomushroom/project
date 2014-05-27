@@ -3,30 +3,30 @@ Project.Post = DS.Model.extend
   text:     DS.attr('string')
   isShared: DS.attr('boolean')
 
-Project.Post.FIXTURES = [
+# Project.Post.FIXTURES = [
 
-    id: 1
-    title: 'Learn Ember.js'
-    text:  'this is text of the post'
-    isShared: true
-  ,
-    id: 2
-    title: 'Learn Handlebars.js'
-    text:  'this is text of the post'
-    isShared: false
-  ,
-    id: 3
-    title: 'Learn EmberData.js'
-    text:  'this is text of the post'
-    isShared: true
+#     id: 1
+#     title: 'Learn Ember.js'
+#     text:  'this is text of the post'
+#     isShared: true
+#   ,
+#     id: 2
+#     title: 'Learn Handlebars.js'
+#     text:  'this is text of the post'
+#     isShared: false
+#   ,
+#     id: 3
+#     title: 'Learn EmberData.js'
+#     text:  'this is text of the post'
+#     isShared: true
 
-  ,
-    id: 4
-    title: 'Learn EmberData.js !!'
-    text:  'this post'
-    isShared: true
+#   ,
+#     id: 4
+#     title: 'Learn EmberData.js !!'
+#     text:  'this post'
+#     isShared: true
 
-]
+# ]
 
 
 

@@ -32,6 +32,9 @@ html
           Clear shared ({{shared}})
         </button>
         {{/if}}
+        
+        {{input type="checkbox" id="toggle-all" checked=allAreShared}}
+
 
     include templates/posts-index
     <span id="post-count">
@@ -43,7 +46,10 @@ html
     script(src="bower_components/ember-data/ember-data.js")
     //- script(src="js/VerbalExpressions.js")
     
-    //- APP FILES
+    //- LIBS
+    script(src="js/libs/localstorage_adapter.js")
+
+    //- APP FILES        
     script(src="js/app.js")
     script(src="js/controllers/posts.js")
     script(src="js/controllers/post.js")

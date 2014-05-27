@@ -4,7 +4,7 @@ Project.PostsController = Ember.ArrayController.extend
       text = text.trim()
       return if !text.length
       post = @store.createRecord 'post',
-        title: 'learn'
+        title: text
         text: text
         isShared: false
       @set 'newTitle', ''
@@ -14,6 +14,15 @@ Project.PostsController = Ember.ArrayController.extend
       shared = @filterBy 'isShared', true
       shared.invoke 'deleteRecord'
       shared.invoke 'save'
+
+  allAreShared:((key, value)->
+    if !value?
+      !!@get('length') && @everyProperty 'isShared', true
+    else
+      @setEach 'isShared', value
+      @invoke  'save'
+      value
+  ).property('@each.isShared')
   
   hasShared: (-> 
     @get('shared') > 0

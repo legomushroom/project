@@ -1,7 +1,7 @@
 window.Project = Ember.Application.create()
 
-
-Project.ApplicationAdapter = DS.FixtureAdapter.extend()
+Project.ApplicationAdapter = DS.LSAdapter.extend
+  namespace: 'posts-emberjs'
 
 Ember.Handlebars.helper 'esc', (value, options)->
   new Ember.Handlebars.SafeString value

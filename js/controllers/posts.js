@@ -8,7 +8,7 @@
           return;
         }
         post = this.store.createRecord('post', {
-          title: 'learn',
+          title: text,
           text: text,
           isShared: false
         });
@@ -22,6 +22,15 @@
         return shared.invoke('save');
       }
     },
+    allAreShared: (function(key, value) {
+      if (value == null) {
+        return !!this.get('length') && this.everyProperty('isShared', true);
+      } else {
+        this.setEach('isShared', value);
+        this.invoke('save');
+        return value;
+      }
+    }).property('@each.isShared'),
     hasShared: (function() {
       return this.get('shared') > 0;
     }).property('shared'),
