@@ -1,14 +1,10 @@
 var plugin = function(){
     return function(style){
-        var nodes = this.nodes, i,
-            l, len, newSelector, newSelectors,
-            regex, selector, _i;
-        // var args = arguments;
         style.define('root-selector', function() {
-          return 'args';
+          return this.selectorStack.slice(0,1).toString();
         });
   
-    };
+    };	
 };
 module.exports = plugin;
 
