@@ -1219,6 +1219,6 @@ a,
   fill: #717171;
   cursor: pointer;
 }
-.block:hover .aaa .block:hover__element2 {
+.block:hover .aaa .block__element2 {
   outline: 1px solid #f00;
 }
