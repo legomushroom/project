@@ -8,9 +8,7 @@
 @import 'css-assets/icons'
 
 
-
-
-// use('assets/is_function.js')
+use('assets/root-selector.js')
 // is_function ?= utilus_is_function
 
 $(i=1)
@@ -19,10 +17,20 @@ $(i=1)
 $$()
   rootSelector()
 
+$$$()
+  root-selector()
+
 .block
   &:hover
-    {$$()}__element
-      hl red
-    &:active
-      {$(2)}__element2
-        hl green
+    test: $$$()
+    // test: selector()
+    // {$$$()}__element
+    // hl red
+
+// .block
+//   &:hover
+//     {$$()}__element
+//       hl red
+//     &:active
+//       {$(2)}__element2
+//         hl green
