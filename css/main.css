@@ -1225,3 +1225,9 @@ a,
 .block:hover .aaa .block__element2 {
   outline: 1px solid #f00;
 }
+.block:hover .block__element {
+  outline: 1px solid #f00;
+}
+.block:hover:active .block__element2 {
+  outline: 1px solid #008000;
+}
