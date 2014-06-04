@@ -31,6 +31,14 @@ var plugin = function(){
           // return comiled current selector
           return utils.compileSelectors(stack);
         });
+
+        style.define('last-selector', function() {
+          var len = this.selectorStack.length;
+          var selector = utils.compileSelectors(this.selectorStack);
+          selector = selector.toString().split(' ');
+          return selector[selector.length-1];
+          // return this.selectorStack.slice(len-1,len).toString();
+        });
   
     };  
 };

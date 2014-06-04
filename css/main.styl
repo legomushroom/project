@@ -25,25 +25,32 @@ $$$()
 
 //! --------------------
 .block
-  &:hover
-    .aaa
-      {-$(2)}__element2
-        hl red
-//! --------------------
-el = '.block'
-{el}
-  &:hover
-    .aaa
-      {el}__element2
-        hl red
-//! --------------------
-.block
-  &:hover
-    {$$()}__element
+  .aaa 
+    & + {last-selector()}
+      test: last-selector()
       hl red
-    &:active
-      {$(2)}__element2
-        hl green
+
+// //! --------------------
+// .block
+//   &:hover
+//     .aaa
+//       {-$(2)}__element2
+//         hl red
+// //! --------------------
+// el = '.block'
+// {el}
+//   &:hover
+//     .aaa
+//       {el}__element2
+//         hl red
+// //! --------------------
+// .block
+//   &:hover
+//     {$$()}__element
+//       hl red
+//     &:active
+//       {$(2)}__element2
+//         hl green
 
 
         
