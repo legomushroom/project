@@ -54,7 +54,6 @@ compileSelectors = function(arr, leaveHidden){
 
 var plugin = function(){
     return function(style){
-        
         style.define('root-selector', function() {
           return this.selectorStack.slice(0,1).toString();
         });
@@ -91,7 +90,6 @@ var plugin = function(){
           return selector[selector.length-1];
           // return this.selectorStack.slice(len-1,len).toString();
         });
-  
     };  
 };
 module.exports = plugin;
