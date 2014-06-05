@@ -10,27 +10,18 @@
 
 use('assets/nesting-tree-traversal.js')
 
-$()
-  root-selector()
-
--$(i=1)
-  rewind-selector(i)
-
-$$()
-  last-selector()
-
 .block
   &__element
     &--element-modifier
       &:hover
-        {-$(2)}
+        {rewind-selector(2)}
           hl green
     /* some element's styles */
   &--modifier
-    {$()}
+    {root-selector()}
       hl orange
     .a
-      & + {$$()}
+      & + {last-selector()}
         hl green
     /* some modifier's styles */
 
