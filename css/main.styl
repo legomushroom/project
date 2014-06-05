@@ -11,25 +11,37 @@
 use('assets/root-selector.js')
 // is_function ?= utilus_is_function
 
-$(i=1)
-  rewindSelector(i)
 
-$$()
-  rootSelector()
 
-$$$()
+$()
   root-selector()
 
 -$(i=1)
   rewind-selector(i)
 
+$$()
+  last-selector()
+
+.block
+  &__element
+    &--element-modifier
+      &:hover
+        {-$(2)}
+          hl green
+    /* some element's styles */
+  &--modifier
+    {$()}
+      hl orange
+    .a
+      & + {$$()}
+        hl green
+    /* some modifier's styles */
+
 //! --------------------
 .block
-  .aaa 
-    & + {last-selector()}
-      test: last-selector()
-      hl red
-
+  &__element
+    & + {$$()}
+      margin-left 20px
 // //! --------------------
 // .block
 //   &:hover
