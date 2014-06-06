@@ -54,11 +54,11 @@ compileSelectors = function(arr, leaveHidden){
 
 var plugin = function(){
     return function(style){
-        style.define('root-selector', function() {
+        style.define('root', function() {
           return this.selectorStack.slice(0,1).toString();
         });
 
-        style.define('rewind-selector', function(i) {
+        style.define('up', function(i) {
           var stack = this.selectorStack,
               len   = stack.length, i;
           // parse int from i in case of '1a'
