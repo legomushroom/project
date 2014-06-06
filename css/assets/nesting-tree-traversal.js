@@ -88,7 +88,6 @@ var plugin = function(){
           var selector = compileSelectors(this.selectorStack);
           selector = selector.toString().split(' ');
           return selector[selector.length-1];
-          // return this.selectorStack.slice(len-1,len).toString();
         });
     };  
 };
