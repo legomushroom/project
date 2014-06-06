@@ -83,7 +83,7 @@ var plugin = function(){
           return compileSelectors(stack);
         });
 
-        style.define('last-selector', function() {
+        style.define('last', function() {
           var len = this.selectorStack.length;
           var selector = compileSelectors(this.selectorStack);
           selector = selector.toString().split(' ');

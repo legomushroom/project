@@ -9,53 +9,53 @@
 
 use('assets/nesting-tree-traversal.js')
 
-// .block
-//   &__element
-//     &--element-modifier
-//       &:hover
-//         {rewind-selector(2)}
-//           hl green
-//     /* some element's styles */
-//   &--modifier
-//     {root-selector()}
-//       hl orange
-//     .a
-//       & + {last-selector()}
-//         hl green
-//     /* some modifier's styles */
+.block
+  &__element
+    &--element-modifier
+      &:hover
+        {up(2)}
+          hl green
+    /* some element's styles */
+  &--modifier
+    {root()}
+      hl orange
+    .a
+      & + {end()}
+        hl green
+    /* some modifier's styles */
 
 .foo
   &__bar
     &:hover
-      & + {rewind-selector(1)}
+      & + {up(1)}
         hl green
 
 
 //! --------------------
-// a
-//   & + {last()}
-//     margin-left 20px
-// //! --------------------
-// .block
-//   &:hover
-//     .aaa
-//       {-$(2)}__element2
-//         hl red
-// //! --------------------
-// el = '.block'
-// {el}
-//   &:hover
-//     .aaa
-//       {el}__element2
-//         hl red
-// //! --------------------
-// .block
-//   &:hover
-//     {$$()}__element
-//       hl red
-//     &:active
-//       {$(2)}__element2
-//         hl green
+a
+  & + {end()}
+    margin-left 20px
+//! --------------------
+.block
+  &:hover
+    .aaa
+      {up(2)}__element2
+        hl red
+//! --------------------
+el = '.block'
+{el}
+  &:hover
+    .aaa
+      {el}__element2
+        hl red
+//! --------------------
+.block
+  &:hover
+    {end()}__element
+      hl red
+    &:active
+      {up(2)}__element2
+        hl green
 
 
         
