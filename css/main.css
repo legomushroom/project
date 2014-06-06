@@ -1219,15 +1219,6 @@ a,
   fill: #717171;
   cursor: pointer;
 }
-.block__element--element-modifier:hover .block__element {
+.foo__bar:hover + .foo__bar {
   outline: 1px solid #008000;
-}
-.block--modifier .block {
-  outline: 1px solid #ffa500;
-}
-.block--modifier .a + .a {
-  outline: 1px solid #008000;
-}
-.block__element + .block__element {
-  margin-left: 20px;
 }
