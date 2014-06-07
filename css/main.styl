@@ -56,11 +56,13 @@ el = '.block'
     .aaa
       {el}__element2
         hl red
+
 //! --------------------
 .block
   &:hover
     {end()}__element
       hl red
+      test selector()
     &:active
       {up(2)}__element2
         hl green
