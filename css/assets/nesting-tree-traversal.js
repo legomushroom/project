@@ -55,7 +55,9 @@ compileSelectors = function(arr, leaveHidden){
 var plugin = function(){
     return function(style){
         style.define('root', function() {
-          return this.selectorStack.slice(0,1).toString();
+          var stack = this.selectorStack;
+          if (!stack.length) return '';
+          return stack.length ? utils.compileSelectors(stack.slice(0,1)).join(',') : '&';
         });
 
         style.define('up', function(i) {
