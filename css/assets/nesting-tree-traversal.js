@@ -70,9 +70,11 @@ var plugin = function(){
           return utils.compileSelectors(stack).join(',');
         });
 
-        style.define('last', function() {
-          var len = this.selectorStack.length;
-          var selector = compileSelectors(this.selectorStack);
+        style.define('end', function() {
+          var len = this.selectorStack.length,
+              selector = null;
+          if (!len) return '';
+          selector = utils.compileSelectors(this.selectorStack).join(',');
           selector = selector.toString().split(' ');
           return selector[selector.length-1];
         });
