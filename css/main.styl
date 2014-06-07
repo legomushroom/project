@@ -30,17 +30,25 @@ use('assets/nesting-tree-traversal.js')
       & + {up(1)}
         hl green
 
-
-//! --------------------
-a
-  & + {end()}
-    margin-left 20px
 //! --------------------
 .block
   &:hover
     .aaa
       {up(2)}__element2
         hl red
+
+.block
+  &__element
+    &--element-modifier
+      &:hover
+        {up(2)}
+          hl green
+
+//! --------------------
+a
+  & + {end()}
+    margin-left 20px
+
 //! --------------------
 el = '.block'
 {el}
