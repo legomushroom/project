@@ -10,12 +10,26 @@
 use('assets/nesting-tree-traversal.js')
 
 .block
+  &:hover
+    {root()}__element
+
+  &__element
+    & + {end()}
+      margin-left 20px
+
+    &--modifier
+      &:active
+        & + {up(2)}
+          hl green
+
+
+
+.block
   &__element
     &--element-modifier
       &:hover
         {up(2)}
           hl green
-    /* some element's styles */
   &--modifier
     {root()}
       hl orange
