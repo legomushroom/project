@@ -56,7 +56,6 @@ var plugin = function(){
     return function(style){
         style.define('root', function() {
           var stack = this.selectorStack;
-          if (!stack.length) return '';
           return stack.length ? utils.compileSelectors(stack.slice(0,1)).join(',') : '&';
         });
 
